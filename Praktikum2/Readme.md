@@ -2,7 +2,7 @@
 <p align="center">Amelia Azmi - 2311102135</p>
 
 
-### Hello World
+## Hello World
 
 ```go
 package main
@@ -23,11 +23,11 @@ func main() {
 
 ```
 
-#### Output:
+### Output:
 
 ![Alt text](Hello.png)
 
-### Hipotenusa
+## Hipotenusa
 
 ```go
 package main
@@ -52,6 +52,75 @@ func main() {
 
 ```
 
-#### Output:
+### Output:
 
 ![Alt text](Hipotenusa.png)
+
+## Latihan 1
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var (
+		satu, dua, tiga string
+		temp            string
+	)
+	fmt.Print("Masukkan input String: ")
+	fmt.Scanln(&satu)
+	fmt.Print("Masukkan input String: ")
+	fmt.Scanln(&dua)
+	fmt.Print("Masukkan input String: ")
+	fmt.Scanln(&tiga)
+	fmt.Println("Output awal: ", satu+" "+dua+" "+tiga)
+	temp = satu
+	satu = dua
+	dua = tiga
+	tiga = temp
+	fmt.Println("Output akhir: ", satu+" "+dua+" "+tiga)
+}
+
+```
+
+### Output:
+
+![Alt text](Latihan1.png)
+
+## Latihan 2
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var tahun int
+
+	fmt.Print("Masukkan tahun: ")
+	fmt.Scanln(&tahun)
+
+	if tahun%4 == 0 {
+		if tahun%100 == 0 {
+			if tahun%400 == 0 {
+				fmt.Println("Tahun kabisat")
+			} else {
+				fmt.Println("Bukan tahun kabisat")
+			}
+		} else {
+			fmt.Println("Tahun kabisat")
+		}
+	} else {
+		fmt.Println("Bukan tahun kabisat")
+	}
+}
+```
+
+### Output:
+
+![Alt text](Latihan2.png)
