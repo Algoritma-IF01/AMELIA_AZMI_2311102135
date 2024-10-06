@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum 2</h1>
+# <h1 align="center">Laporan Praktikum 2 "Riview Struktur Kontrol" </h1>
 <p align="center">Amelia Azmi - 2311102135</p>
 
 
@@ -130,21 +130,24 @@ func main() {
 ```go
 package main
 
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 const pi = 3.1415926535
 
 func main() {
-    var radius int
-    fmt.Print("Jarijari=")
-    fmt.Scan(&radius)
+	var radius int
+	fmt.Print("Jarijari=")
+	fmt.Scan(&radius)
 
-    volume := 4.0/3.0 * pi * math.Pow(float64(radius), 3)
-    surfaceArea := 4 * pi * math.Pow(float64(radius), 2)
+	volume = 4.0 / 3.0 * pi * math.Pow(float64(radius), 3)
+	surfaceArea = 4 * pi * math.Pow(float64(radius), 2)
 
-    fmt.Printf("Bola dengan jari-jari %d memiliki volume %.4f dan luas kulit %.4f\n", radius, volume, surfaceArea)
+	fmt.Printf("Bola dengan jari-jari %d memiliki volume %.4f dan luas kulit %.4f\n", radius, volume, surfaceArea)
 }
+
 ```
 
 ### Output:
@@ -154,19 +157,64 @@ func main() {
 ## Latihan 4
 
 ```go
+package main
 
+import (
+	"fmt"
+)
+
+func main() {
+	var celcius, fahrenheit, kelvin, reamur float64
+
+	fmt.Print("Masukkan suhu dalam celcius: ")
+	fmt.Scanln(&celcius)
+	reamur = celcius * 4 / 5
+	fahrenheit = (celcius * 9 / 5) + 32
+	kelvin = celcius + 273.15
+
+	fmt.Println("Suhu dalam reamur: ", reamur)
+	fmt.Println("Suhu dalam fahrenheit: ", fahrenheit)
+	fmt.Println("Suhu dalam kelvin: ", kelvin)
+
+}
 ```
 
 ### Output:
 
+![Alt text](Latihan4.png)
 
 ## Latihan 5
 
 ```go
+package main
 
+import "fmt"
+
+func main() {
+
+	fmt.Println("Masukkan 5 angka:")
+	var a, b, c, d, e int
+	fmt.Scan(&a, &b, &c, &d, &e)
+
+	fmt.Println("Output dari 5 angka:")
+	fmt.Printf("%c%c%c%c%c\n", a, b, c, d, e)
+
+	fmt.Println("Masukkan 3 karakter:")
+	var input string
+	fmt.Scanln(&input)
+
+	if len(input) == 3 {
+		fmt.Println("Output dari 3 karakter:")
+		fmt.Printf("%c%c%c\n", rune(input[0])+1, rune(input[1])+1, rune(input[2])+1)
+	} else {
+		fmt.Println("Input karakter harus terdiri dari 3 karakter")
+	}
+}
 ```
 
 ### Output:
+
+![Alt text](Latihan5.png)
 
 
 
