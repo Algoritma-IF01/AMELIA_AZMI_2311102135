@@ -121,7 +121,7 @@ func main() {
 
 
 
-## Latihan 4
+## 
 
 ```go
 
@@ -131,7 +131,7 @@ func main() {
 
 
 
-## Latihan 5
+## 
 
 ```go
 
