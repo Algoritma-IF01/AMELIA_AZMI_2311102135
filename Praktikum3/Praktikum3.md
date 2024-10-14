@@ -46,7 +46,7 @@ func main() {
 
 ### Output:
 
-![Alt text](SoalLatihan1.png)
+![Alt text](Latihan_Guided/SoalLatihan1.png)
 
 ## Latihan2
 
@@ -90,7 +90,7 @@ func main() {
 
 ### Output:
 
-![Alt text](SoalLatihan2.png)
+![Alt text](Latihan_Guided/SoalLatihan2.png)
 
 # PERULANGAN
 
