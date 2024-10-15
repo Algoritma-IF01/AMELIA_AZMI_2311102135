@@ -46,7 +46,7 @@ func main() {
 
 ### Output:
 
-![Alt text](Latihan_Guided/SoalLatihan1.png)
+![Alt text](SoalLatihan1.png)
 
 ## Latihan2
 
@@ -90,7 +90,7 @@ func main() {
 
 ### Output:
 
-![Alt text](Latihan_Guided/SoalLatihan2.png)
+![Alt text](SoalLatihan2.png)
 
 # PERULANGAN
 
@@ -148,7 +148,7 @@ func abs(x float64) float64 {
 
 ![Alt text](TugasPerulangan3.png)
 
-## 
+## TugasPerulangan2
 
 ```go
 package main
