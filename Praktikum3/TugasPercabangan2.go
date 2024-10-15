@@ -1,3 +1,4 @@
+// Sebelum Di Perbaiki
 package main
 
 import "fmt"
