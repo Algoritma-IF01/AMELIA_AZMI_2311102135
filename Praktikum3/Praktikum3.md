@@ -94,55 +94,44 @@ func main() {
 
 # PERULANGAN
 
-## Tugas1
+## TugasPerulangan3
 
 ```go
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
 )
 
 func main() {
-	var totalBerat float64
-	scanner := bufio.NewScanner(os.Stdin)
+	var left, right float64
+	var totalWeight float64
 
 	for {
 		fmt.Print("Masukan berat belanjaan di kedua kantong: ")
-		scanner.Scan()
-		input := scanner.Text()
-
-		parts := strings.Split(input, " ")
-		if len(parts) != 2 {
-			fmt.Println("Input harus berupa dua buah bilangan real positif")
+		_, err := fmt.Scan(&left, &right)
+		if err != nil {
+			fmt.Println("Invalid input. Please enter two numbers.")
 			continue
 		}
 
-		berat1, err1 := strconv.ParseFloat(parts[0], 64)
-		berat2, err2 := strconv.ParseFloat(parts[1], 64)
-
-		if err1 != nil || err2 != nil {
-			fmt.Println("Input harus berupa bilangan real")
+		if left < 0 || right < 0 {
+			fmt.Println("Berat tidak boleh negatif.")
 			continue
 		}
 
-		if berat1 < 0 || berat2 < 0 {
+		totalWeight = left + right
+		if totalWeight > 150 {
 			fmt.Println("Proses selesai.")
 			break
 		}
 
-		totalBerat += berat1 + berat2
-		if totalBerat > 150 {
-			fmt.Println("Proses selesai.")
-			break
+		diff := abs(left - right)
+		if diff >= 9 {
+			fmt.Printf("Sepeda motor pak Andi akan oleng: true\n")
+		} else {
+			fmt.Printf("Sepeda motor pak Andi akan oleng: false\n")
 		}
-
-		selisih := abs(berat1 - berat2)
-		fmt.Printf("Sepeda motor pak Andi akan oleng: %v\n", selisih >= 9)
 	}
 }
 
@@ -157,16 +146,47 @@ func abs(x float64) float64 {
 
 ### Output:
 
-
+![Alt text](TugasPerulangan3.png)
 
 ## 
 
 ```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var k int
+	fmt.Print("Nilai K = ")
+	fmt.Scan(&k)
+
+	fk := calculateFK(float64(k))
+	fmt.Printf("Nilai f(k) = %.10f\n", fk)
+
+	sqrt2 := calculateSqrt2(k)
+	fmt.Printf("Nilai akar 2 = %.10f\n", sqrt2)
+}
+
+func calculateFK(k float64) float64 {
+	return math.Pow((4*k + 2), 2) / ((4*k + 1) * (4*k + 3))
+}
+
+func calculateSqrt2(k int) float64 {
+	var sqrt2 float64
+	for i := 0; i <= k; i++ {
+		sqrt2 *= math.Pow((4*float64(i) + 2), 2) / ((4*float64(i) + 1) * (4*float64(i) + 3))
+	}
+	return sqrt2
+}
 
 ```
 
 ### Output:
 
+![Alt text](TugasPerulangan4.png)
 
 ## 
 

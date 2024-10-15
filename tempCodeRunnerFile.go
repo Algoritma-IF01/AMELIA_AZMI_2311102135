@@ -2,43 +2,29 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func main() {
-	var left, right float64
-	var totalWeight float64
+	var k int
+	fmt.Print("Nilai K = ")
+	fmt.Scan(&k)
 
-	for {
-		fmt.Print("Masukan berat belanjaan di kedua kantong: ")
-		_, err := fmt.Scan(&left, &right)
-		if err != nil {
-			fmt.Println("Invalid input. Please enter two numbers.")
-			continue
-		}
+	fk := calculateFK(float64(k))
+	fmt.Printf("Nilai f(k) = %.10f\n", fk)
 
-		if left < 0 || right < 0 {
-			fmt.Println("Berat tidak boleh negatif.")
-			continue
-		}
-
-		totalWeight = left + right
-		if totalWeight > 150 {
-			fmt.Println("Proses selesai.")
-			break
-		}
-
-		diff := abs(left - right)
-		if diff >= 9 {
-			fmt.Printf("Sepeda motor pak Andi akan oleng: true\n")
-		} else {
-			fmt.Printf("Sepeda motor pak Andi akan oleng: false\n")
-		}
-	}
+	sqrt2 := calculateSqrt2(k)
+	fmt.Printf("Nilai akar 2 = %.10f\n", sqrt2)
 }
 
-func abs(x float64) float64 {
-	if x < 0 {
-		return -x
+func calculateFK(k float64) float64 {
+	return math.Pow((4*k + 2), 2) / ((4*k + 1) * (4*k + 3))
+}
+
+func calculateSqrt2(k int) float64 {
+	var sqrt2 float64
+	for i := 0; i <= k; i++ {
+		sqrt2 *= math.Pow((4*float64(i) + 2), 2) / ((4*float64(i) + 1) * (4*float64(i) + 3))
 	}
-	return x
+	return sqrt2
 }
