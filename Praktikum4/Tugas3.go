@@ -15,10 +15,10 @@ func hitungSkor(nama string, skor *int, soal *int) {
 
 	// Membaca 8 waktu penyelesaian dari peserta
 	for i := 0; i < 8; i++ {
-		fmt.Scan(&waktu) // Membaca waktu untuk setiap soal
+		fmt.Scan(&waktu)  // Membaca waktu untuk setiap soal
 		if waktu <= 300 { // Jika waktu penyelesaian kurang dari atau sama dengan 300 menit
-			*soal++           // Menambah jumlah soal yang diselesaikan
-			*skor += waktu    // Menambahkan waktu ke total skor
+			*soal++        // Menambah jumlah soal yang diselesaikan
+			*skor += waktu // Menambahkan waktu ke total skor
 		}
 	}
 }

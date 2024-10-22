@@ -197,26 +197,162 @@ func main() {
 ## Tugas2
 
 ```go
+package main
 
+import (
+	"fmt"
+	"math"
+)
+
+func jarak(a, b, c, d float64) float64 {
+	return math.Sqrt(math.Pow(a-c, 2) + math.Pow(b-d, 2))
+}
+
+func dalam(cx, cy, r, x, y float64) bool {
+	return jarak(cx, cy, x, y) <= r
+}
+
+func main() {
+	var cx1, cy1, r1 float64
+	var cx2, cy2, r2 float64
+	var x, y float64
+
+	fmt.Print("Pusat dan radius lingkaran 1 (cx cy r): ")
+	fmt.Scan(&cx1, &cy1, &r1)
+
+	fmt.Print("Pusat dan radius lingkaran 2 (cx cy r): ")
+	fmt.Scan(&cx2, &cy2, &r2)
+
+	fmt.Print("Masukkan koordinat titik (x y): ")
+	fmt.Scan(&x, &y)
+
+	dilingkaran1 := dalam(cx1, cy1, r1, x, y)
+	dilingkaran2 := dalam(cx2, cy2, r2, x, y)
+
+	if dilingkaran1 && dilingkaran2 {
+		fmt.Println("Titik di dalam lingkaran 1 dan 2")
+	} else if dilingkaran1 {
+		fmt.Println("Titik di dalam lingkaran 1")
+	} else if dilingkaran2 {
+		fmt.Println("Titik di dalam lingkaran 2")
+	} else {
+		fmt.Println("Titik di luar lingkaran 1 dan 2")
+	}
+}
 ```
 
 ### Output:
 
-
+![Alt text](Tugas2.png)
 
 ## Tugas3
 
 ```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+// Prosedur hitungSkor untuk menghitung total soal yang diselesaikan dan total skor
+// Prosedur ini menggunakan parameter formal untuk mengambil input dari pengguna
+func hitungSkor(nama string, skor *int, soal *int) {
+	var waktu int
+	// Inisialisasi jumlah soal yang diselesaikan dan total waktu
+	*soal = 0
+	*skor = 0
+
+	// Membaca 8 waktu penyelesaian dari peserta
+	for i := 0; i < 8; i++ {
+		fmt.Scan(&waktu)  // Membaca waktu untuk setiap soal
+		if waktu <= 300 { // Jika waktu penyelesaian kurang dari atau sama dengan 300 menit
+			*soal++        // Menambah jumlah soal yang diselesaikan
+			*skor += waktu // Menambahkan waktu ke total skor
+		}
+	}
+}
+
+func main() {
+	// Deklarasi variabel untuk menyimpan nama peserta, skor, dan soal
+	var nama string
+	var totalSkor, totalSoal int
+	var pemenang string
+	var pemenangSkor, pemenangSoal int = 301, 0 // Inisialisasi pemenang dengan waktu maksimal
+
+	// Meminta input peserta
+	for {
+		fmt.Println("Masukkan nama peserta dan 8 kali menyelesaikan soal (atau ketik 'selesai' untuk mengakhiri):")
+		fmt.Scan(&nama)
+
+		// Memeriksa apakah pengguna ingin mengakhiri input
+		if strings.ToLower(nama) == "selesai" {
+			break
+		}
+
+		// Memanggil prosedur untuk menghitung skor
+		hitungSkor(nama, &totalSkor, &totalSoal)
+
+		// Mengecek apakah peserta ini menjadi pemenang
+		if totalSoal > pemenangSoal || (totalSoal == pemenangSoal && totalSkor < pemenangSkor) {
+			pemenang = nama
+			pemenangSoal = totalSoal
+			pemenangSkor = totalSkor
+		}
+	}
+
+	// Mencetak hasil pemenang
+	fmt.Printf("%s %d %d\n", pemenang, pemenangSoal, pemenangSkor)
+}
+```
+
+### Output:
+
+![Alt text](Tugas3.png)
+
+## Tugas4
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// Fungsi cetakDeret untuk mencetak deret sesuai aturan yang diberikan
+func cetakDeret(n int) {
+	for n != 1 {
+		fmt.Print(n, " ")
+
+		if n%2 == 0 {
+			n = n / 2
+		} else {
+			n = 3*n + 1
+		}
+	}
+	fmt.Println(1)
+}
+
+func main() {
+	var n int
+
+	// input dari pengguna
+	fmt.Print("Masukkan nilai suku awal: ")
+	fmt.Scanln(&n)
+
+	// memastikan bahwa input valid (kurang dari 1 juta)
+	if n <= 0 || n >= 1000000 {
+		fmt.Println("Input harus bilangan positif dan kurang dari 1 juta!")
+		return
+	}
+	cetakDeret(n)
+}
 
 ```
 
 ### Output:
 
-
-
-
-
-
+![Alt text](Tugas4.png)
 
 
 
