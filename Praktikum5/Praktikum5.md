@@ -36,30 +36,30 @@ func main() {
 package main
 
 import "fmt"
+
 type waktu struct {
 	jam, menit, detik int
 }
 
-func main(){
-	var wParkir, wPulang durasi waktu
-	var dParkir, dPulang, IParkir int
-	fmt.Scan (&wParkir.jam, &wParkir.menit, &wParkir.detik)
-	fmt.Scan (&wPulang.jam, &wPulang.menit, &wPulang.detik)
+func main() {
+	var wParkir, wPulang, durasi waktu
+	var dParkir, dPulang, lParkir int
+	fmt.Scan(&wParkir.jam, &wParkir.menit, &wParkir.detik)
+	fmt.Scan(&wPulang.jam, &wPulang.menit, &wPulang.detik)
 	dParkir = wParkir.detik + wParkir.menit*60 + wParkir.jam*3600
 	dPulang = wPulang.detik + wPulang.menit*60 + wPulang.jam*3600
-	IParkir = dPulang - dParkir
-	durasi.jam = IParkir / 3600
-	durasi.menit = IParkir % 3600 / 60
-	durasi.detik = IParkir % 3600 % 60
-	fmt.Print("Lama parkir: %d jam %d menit %d detik", durasi.jam, durasi.menit, durasi.detik)
-
-
+	lParkir = dPulang - dParkir
+	durasi.jam = lParkir / 3600
+	durasi.menit = lParkir % 3600 / 60
+	durasi.detik = lParkir % 3600 % 60
+	fmt.Printf("Lama parkir : %d jam %d menit %d detik",
+		durasi.jam, durasi.menit, durasi.detik)
 }
 ```
 
 ### Output:
 
-
+![Alt text](Latihan2.png)
 
 ## Latihan3
 
@@ -227,17 +227,45 @@ func main() {
 
 ![Alt text](Latihan5.png)
 
+# TUGAS
+
+## Tugas1
+
+```go
+
+```
+
+### Output:
 
 
 
+## Tugas2
+
+```go
+
+```
+
+### Output:
 
 
 
+## Tugas3
+
+```go
+
+```
+
+### Output:
 
 
 
+## Tugas4
 
+```go
 
+```
+
+### Output:
 
 
 
