@@ -1,4 +1,5 @@
-# <h1 align="center">Laporan Praktikum 6 "PENCARIAN NILAI EKSTRIM PADA HIMPUNAN DATA" </h1>
+# <h1 align="center">Laporan Praktikum 6 
+"PENCARIAN NILAI EKSTRIM PADA HIMPUNAN DATA" </h1>
 <p align="center">Amelia Azmi - 2311102135</p>
 
 
