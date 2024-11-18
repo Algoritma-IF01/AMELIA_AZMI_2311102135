@@ -57,7 +57,7 @@ func main() {
 
 ### Output:
 
-
+![Alt text](Latihan1.png)
 
 ## Latihan2
 
@@ -135,7 +135,7 @@ func main() {
 
 ### Output:
 
-
+![Alt text](Latihan2.png)
 
 # TUGAS
 
@@ -184,18 +184,160 @@ func main() {
 ## Tugas2
 
 ```go
+package main
 
+import (
+	"fmt"
+	"math"
+)
+
+// Fungsi untuk menghitung total berat setiap wadah dan rata-rata berat per wadah
+func calculateContainerWeightsAndAverage(x, y int, weights []float64) ([]float64, float64) {
+	numContainers := int(math.Ceil(float64(x) / float64(y)))
+	containerWeights := make([]float64, numContainers)
+	total := 0.0
+
+	// Hitung total berat per wadah dan rata-rata sekaligus
+	for i, weight := range weights {
+		containerWeights[i/y] += weight
+		total += weight
+	}
+
+	average := total / float64(numContainers)
+	return containerWeights, average
+}
+
+// Fungsi untuk validasi input
+func validateInput(x, y int, weights []float64) error {
+	if x <= 0 || y <= 0 || x > 1000 {
+		return fmt.Errorf("jumlah ikan harus antara 1 dan 1000, dan kapasitas wadah harus lebih dari 0")
+	}
+	if len(weights) != x {
+		return fmt.Errorf("jumlah berat ikan yang dimasukkan harus sebanyak %d", x)
+	}
+	for _, weight := range weights {
+		if weight < 0 {
+			return fmt.Errorf("berat ikan tidak boleh negatif")
+		}
+	}
+	return nil
+}
+
+func main() {
+	var x, y int
+	fmt.Print("Masukkan banyak ikan yang akan dijual: ")
+	fmt.Scan(&x)
+	fmt.Print("Masukkan banyak ikan yang akan dimasukkan ke dalam wadah: ")
+	fmt.Scan(&y)
+
+	weights := make([]float64, x)
+	fmt.Printf("Masukkan berat %d ikan (dipisahkan dengan spasi): ", x)
+	for i := 0; i < x; i++ {
+		if _, err := fmt.Scan(&weights[i]); err != nil {
+			fmt.Println("Input berat ikan tidak valid.")
+			return
+		}
+	}
+
+	// Validasi input
+	if err := validateInput(x, y, weights); err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	// Memanggil fungsi untuk menghitung total berat dan rata-rata
+	containerWeights, totalAverage := calculateContainerWeightsAndAverage(x, y, weights)
+
+	// Cetak hasil
+	fmt.Println("\nTotal berat di setiap wadah:")
+	for i, weight := range containerWeights {
+		fmt.Printf("Wadah %d: %.2f\n", i+1, weight)
+	}
+
+	fmt.Printf("\nRata-rata berat per wadah: %.2f\n", totalAverage)
+}
 ```
 
 ### Output:
 
-
+![Alt text](Tugas2.png)
 
 ## Tugas3
 
 ```go
+package main
 
+import (
+	"fmt"
+)
+
+// Definisi tipe array dengan kapasitas maksimum 100 elemen
+type arrBalita [100]float64
+
+// Fungsi untuk menghitung nilai minimum dan maksimum dalam array
+func hitungMinMax(arrBerat arrBalita, bMin, bMax *float64, n int) {
+	// Inisialisasi nilai awal bMin dan bMax dengan elemen pertama array
+	*bMin = arrBerat[0]
+	*bMax = arrBerat[0]
+
+	// Iterasi untuk mencari nilai minimum dan maksimum dari elemen array
+	for i := 0; i < n; i++ {
+		if arrBerat[i] < *bMin {
+			*bMin = arrBerat[i] // Jika elemen lebih kecil dari bMin, perbarui bMin
+		}
+		if arrBerat[i] > *bMax {
+			*bMax = arrBerat[i] // Jika elemen lebih besar dari bMax, perbarui bMax
+		}
+	}
+}
+
+// Fungsi untuk menghitung rata-rata berat balita dalam array
+func rerata(arrBerat arrBalita, n int) float64 {
+	total := 0.0 // Variabel untuk menyimpan jumlah total berat balita
+
+	// Iterasi untuk menjumlahkan semua elemen array
+	for i := 0; i < n; i++ {
+		total += arrBerat[i] // Tambahkan berat balita ke dalam total
+	}
+
+	// Mengembalikan rata-rata (total berat dibagi jumlah elemen)
+	return total / float64(n)
+}
+
+func main() {
+	var n int              // Variabel untuk jumlah data berat balita
+	var arrBerat arrBalita // Array untuk menyimpan berat balita
+	var bMin, bMax float64 // Variabel untuk menyimpan nilai minimum dan maksimum
+
+	// Meminta input jumlah data berat balita
+	fmt.Print("Masukkan banyak data berat balita: ")
+	fmt.Scan(&n)
+
+	// Validasi jumlah data (harus antara 1 dan 100)
+	if n <= 0 || n > 100 {
+		fmt.Println("Jumlah data harus antara 1 hingga 100.")
+		return // Jika input tidak valid, hentikan program
+	}
+
+	// Input data berat balita
+	for i := 0; i < n; i++ {
+		fmt.Printf("Masukkan berat balita ke-%d: ", i+1)
+		fmt.Scan(&arrBerat[i]) // Menyimpan input ke dalam array
+	}
+
+	// Memanggil fungsi untuk menghitung nilai minimum dan maksimum
+	hitungMinMax(arrBerat, &bMin, &bMax, n)
+
+	// Memanggil fungsi untuk menghitung rata-rata berat balita
+	rataRata := rerata(arrBerat, n)
+
+	// Menampilkan hasil
+	fmt.Printf("\nBerat balita minimum: %.2f kg\n", bMin)  // Menampilkan berat minimum
+	fmt.Printf("Berat balita maksimum: %.2f kg\n", bMax)   // Menampilkan berat maksimum
+	fmt.Printf("Rerata berat balita: %.2f kg\n", rataRata) // Menampilkan rata-rata berat
+}
 ```
 
 ### Output:
 
+![Alt text](Tugas3.png)
