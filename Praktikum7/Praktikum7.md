@@ -4,7 +4,7 @@
 
 # LATIHAN
 
-## Latihan 1 Selection Sort
+## Latihan1
 
 ```go
 package main
@@ -47,7 +47,7 @@ func main() {
 
 ![Alt text](Latihan1.png)
 
-## Latihan 2 Selection Sort
+## Latihan2
 
 ```go
 package main
@@ -407,7 +407,7 @@ func main() {
 
 ![Alt text](Tugas2.png)
 
-## Tugas 3 Insertion Sort
+## Tugas3
 
 ```go
 package main
@@ -498,7 +498,7 @@ func main() {
 
 ![Alt text](Tugas3.png)
 
-## Tugas 4 Insertion Sort
+## Tugas4
 
 ```go
 package main
